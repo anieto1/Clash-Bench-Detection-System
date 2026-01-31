@@ -1,5 +1,5 @@
 # Clash-Bench-Detection-System
-Do you play Clash of Clans(CoC)? Are you in a clan tha wants to take it to the next level? This application tracks performance for members participating in Clan War League(CWL). It will analyze attack data to crown top performers and point out the weakest links(the next one to be benched) using a custom scoring algorithm, **Clash Bench Detection System(CBDS)**. The algorithm is fine tuned to weigh attacks based on several factors, not just raw stars and destruction.
+Do you play Clash of Clans(CoC)? Are you in a clan that wants to take it to the next level? This application tracks performance for members participating in Clan War League(CWL). It will analyze attack data to crown top performers and point out the weakest links(the next one to be benched) using a custom scoring algorithm, **Clash Bench Detection System(CBDS)**. The algorithm is fine tuned to weigh attacks based on several factors, not just raw stars and destruction.
 
 > **"Who's carrying their weight, and who should be on the bench?"**
 
