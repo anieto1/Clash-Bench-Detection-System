@@ -27,8 +27,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(CocApiException.class)
     public ProblemDetail handleCocApiException(CocApiException ex) {
         log.error("CoC API error: {}", ex.getMessage());
-        ProblemDetail problem = ProblemDetail.forStatusAndDetail(
-                HttpStatus.BAD_GATEWAY, ex.getMessage());
+        HttpStatus httpStatus = switch (ex.getStatusCode()) {
+            case 404 -> HttpStatus.NOT_FOUND;
+            case 403 -> HttpStatus.FORBIDDEN;
+            case 429 -> HttpStatus.TOO_MANY_REQUESTS;
+            case 400 -> HttpStatus.BAD_REQUEST;
+            default  -> HttpStatus.BAD_GATEWAY;
+        };
+        ProblemDetail problem = ProblemDetail.forStatusAndDetail(httpStatus, ex.getMessage());
         problem.setTitle("External API Error");
         problem.setProperty("cocStatusCode", ex.getStatusCode());
         problem.setProperty("reason", ex.getReason());

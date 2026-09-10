@@ -22,11 +22,11 @@ public class ResourceNotFoundException extends RuntimeException {
         return new ResourceNotFoundException("Clan", tag);
     }
 
-    public static ResourceNotFoundException cwlSeason(Long id) {
-        return new ResourceNotFoundException("CwlSeason", id.toString());
+    public static ResourceNotFoundException cwlSeason(String clanTag, String season) {
+        return new ResourceNotFoundException("CwlSeason", clanTag + "/" + season);
     }
 
-    public static ResourceNotFoundException cwlWar(Long id) {
-        return new ResourceNotFoundException("CwlWar", id.toString());
+    public static ResourceNotFoundException cwlWar(String warTag) {
+        return new ResourceNotFoundException("CwlWar", warTag);
     }
 }
