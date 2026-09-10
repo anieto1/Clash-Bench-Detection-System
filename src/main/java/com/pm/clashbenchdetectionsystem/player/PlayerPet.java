@@ -11,8 +11,8 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "player_pets")
-@IdClass(PlayerHeroId.class)
+@Table(name = "player_pet")
+@IdClass(PlayerPetId.class)
 @Getter
 @NoArgsConstructor
 public class PlayerPet {
@@ -22,7 +22,7 @@ public class PlayerPet {
     private String playerTag;
 
     @Id
-    @Column(name = "pet_name", length = 20, nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     private String petName;
 
     @Min(0)
@@ -55,6 +55,7 @@ public class PlayerPet {
 
     void setPlayer(Player player) {
         this.player = player;
+        this.playerTag = (player != null) ? player.getTag() : null;
     }
 
     @Override
@@ -85,7 +86,7 @@ public class PlayerPet {
 
     @Override
     public String toString() {
-        return "PlayerHero[playerTag=" + playerTag + ", name=" + petName + ", level=" + level + "]";
+        return "PlayerPet[playerTag=" + playerTag + ", name=" + petName + ", level=" + level + "]";
     }
 
 

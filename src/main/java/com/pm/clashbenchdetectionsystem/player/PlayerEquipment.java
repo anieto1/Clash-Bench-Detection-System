@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 @Entity
-@IdClass(PlayerHeroId.class)
+@IdClass(PlayerEquipmentId.class)
 @Getter
 @NoArgsConstructor
 @Table(name = "player_equipment")

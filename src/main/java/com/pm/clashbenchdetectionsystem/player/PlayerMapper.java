@@ -10,14 +10,17 @@ public interface PlayerMapper {
 
     PlayerResponse toResponse(Player player);
 
+    @Mapping(target = "name", source = "heroName")
     PlayerResponse.HeroDto toHeroDto(PlayerHero hero);
 
+    @Mapping(target = "name", source = "troopName")
     PlayerResponse.TroopDto toTroopDto(PlayerTroop troop);
 
+    @Mapping(target = "name", source = "spellName")
     PlayerResponse.SpellDto toSpellDto(PlayerSpell spell);
 
+    @Mapping(target = "name", source = "petName")
     PlayerResponse.PetDto toPetDto(PlayerPet pet);
 
-    @Mapping(target = "heroName", source = "heroName")
     PlayerResponse.EquipmentDto toEquipmentDto(PlayerEquipment equipment);
 }

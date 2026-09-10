@@ -23,7 +23,7 @@ public class PlayerHero {
     private String playerTag;
 
     @Id
-    @Column(name = "hero_name", length = 20, nullable = false)
+    @Column(name = "name", length = 30, nullable = false)
     private String heroName;
 
 

@@ -11,7 +11,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 @Entity
-@IdClass(PlayerHeroId.class)
+@IdClass(PlayerSpellId.class)
 @Getter
 @NoArgsConstructor
 @Table(name = "player_spell")
@@ -22,7 +22,7 @@ public class PlayerSpell {
     private String playerTag;
 
     @Id
-    @Column(name = "spell_name", length = 20, nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     private String spellName;
 
     @Min(0)
@@ -86,6 +86,6 @@ public class PlayerSpell {
 
     @Override
     public String toString() {
-        return "PlayerHero[playerTag=" + playerTag + ", name=" + spellName + ", level=" + level + "]";
+        return "PlayerSpell[playerTag=" + playerTag + ", name=" + spellName + ", level=" + level + "]";
     }
 }
