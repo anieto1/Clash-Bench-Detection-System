@@ -1,0 +1,244 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Google Fonts — loaded via <link> in index.html */
+
+@theme {
+  --font-sans: 'Nunito', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Lilita One', 'Bungee', 'Impact', cursive;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* CoC Color Palette */
+  --color-coc-gold-50: #FFFDF0;
+  --color-coc-gold-100: #FFEAA7;
+  --color-coc-gold-200: #FFD700;
+  --color-coc-gold-300: #F5C518;
+  --color-coc-gold-400: #DAA520;
+  --color-coc-gold-500: #B8860B;
+  --color-coc-gold-600: #8B6914;
+
+  --color-coc-navy-50: #2B4A7A;
+  --color-coc-navy-100: #1E3A5F;
+  --color-coc-navy-200: #1A2744;
+  --color-coc-navy-300: #152036;
+  --color-coc-navy-400: #0F1D32;
+  --color-coc-navy-500: #0A1628;
+
+  --color-coc-win: #22C55E;
+  --color-coc-loss: #EF4444;
+  --color-coc-draw: #F59E0B;
+  --color-coc-star: #FFD700;
+
+  /* TH Level Colors */
+  --color-th-legendary: #7C3AED;
+  --color-th-high: #3B82F6;
+  --color-th-mid-high: #14B8A6;
+  --color-th-mid: #22C55E;
+  --color-th-low-mid: #EAB308;
+  --color-th-low: #9CA3AF;
+
+  /* Shadows */
+  --shadow-coc: 0 4px 6px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-coc-lg: 0 10px 25px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.4);
+  --shadow-gold-glow: 0 0 15px rgba(245,197,24,0.4), 0 0 30px rgba(245,197,24,0.2);
+  --shadow-green-glow: 0 0 15px rgba(34,197,94,0.4);
+  --shadow-red-glow: 0 0 15px rgba(239,68,68,0.4);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* === Dark-Only CoC Theme === */
+:root {
+  --radius: 0.625rem;
+  /* Base navy palette */
+  --background: #0A1628;
+  --foreground: #F1F5F9;
+  --card: #1A2744;
+  --card-foreground: #F1F5F9;
+  --popover: #1A2744;
+  --popover-foreground: #F1F5F9;
+  /* Gold as primary */
+  --primary: #DAA520;
+  --primary-foreground: #0A1628;
+  /* Panel blue secondary */
+  --secondary: #1E3A5F;
+  --secondary-foreground: #F1F5F9;
+  /* Muted */
+  --muted: #152036;
+  --muted-foreground: #94A3B8;
+  /* Accent */
+  --accent: #1E3A5F;
+  --accent-foreground: #F5C518;
+  /* Destructive */
+  --destructive: #EF4444;
+  /* Borders */
+  --border: #2B4A7A;
+  --input: #1E3A5F;
+  --ring: #DAA520;
+  /* Charts */
+  --chart-1: #F5C518;
+  --chart-2: #22C55E;
+  --chart-3: #3B82F6;
+  --chart-4: #A855F7;
+  --chart-5: #EF4444;
+  /* Sidebar */
+  --sidebar: #0F1D32;
+  --sidebar-foreground: #CBD5E1;
+  --sidebar-primary: #F5C518;
+  --sidebar-primary-foreground: #0A1628;
+  --sidebar-accent: rgba(245, 197, 24, 0.12);
+  --sidebar-accent-foreground: #F5C518;
+  --sidebar-border: #1E3A5F;
+  --sidebar-ring: #DAA520;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply min-h-screen bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(30, 58, 95, 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(43, 74, 122, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(30, 58, 95, 0.3) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+/* === CoC Heading Style === */
+.coc-heading {
+  font-family: var(--font-display);
+  color: #F5C518;
+  text-shadow:
+    0 2px 0 #B8860B,
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+
+/* === Gold Divider === */
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #DAA520 20%,
+    #FFD700 50%,
+    #DAA520 80%,
+    transparent 100%
+  );
+}
+
+/* === Star Animation === */
+@keyframes star-pop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.star-animate {
+  animation: star-pop 0.3s ease-out forwards;
+}
+.star-animate:nth-child(2) { animation-delay: 0.15s; }
+.star-animate:nth-child(3) { animation-delay: 0.3s; }
+
+/* === Score Counter === */
+@keyframes count-up {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.score-animate {
+  animation: count-up 0.5s ease-out;
+}
+
+/* === Shimmer Loading === */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #1A2744 25%, #2B4A7A 50%, #1A2744 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius);
+}
+
+/* === Pulse Glow (sync indicator) === */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.6), 0 0 30px rgba(34, 197, 94, 0.3); }
+}
+
+/* === Row Slide-In === */
+@keyframes slide-in-row {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* === Scrollbar Styling === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A1628;
+}
+::-webkit-scrollbar-thumb {
+  background: #2B4A7A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B5998;
+}
+
+/* === Safe area for mobile bottom bar === */
+.pb-mobile-nav {
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .pb-mobile-nav {
+    padding-bottom: 0;
+  }
+}
