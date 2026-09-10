@@ -1,0 +1,55 @@
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: cbds-postgres
+    environment:
+      POSTGRES_DB: cbds
+      POSTGRES_USER: cbds
+      POSTGRES_PASSWORD: cbds
+    ports:
+      - "5432:5432"
+    volumes:
+      - cbds-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cbds -d cbds"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: cbds-redis
+    command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lfu
+    ports:
+      - "6379:6379"
+    volumes:
+      - cbds-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  app:
+    env_file: .env
+    build: .
+    container_name: cbds-app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/cbds
+      DB_USERNAME: cbds
+      DB_PASSWORD: cbds
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      COC_API_TOKEN: ${COC_API_TOKEN}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  cbds-pgdata:
+  cbds-redis-data:
